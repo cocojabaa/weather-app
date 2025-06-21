@@ -1,0 +1,21 @@
+.weather-info {
+  color: var(--font-color);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+
+  &__weather-svg {
+    height: 60px;
+    width: fit-content;
+  }
+  &__temperature {
+    font-size: 2.8rem;
+    font-weight: 700;
+  }
+  &__weather-description {
+    margin-top: -10px;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+}

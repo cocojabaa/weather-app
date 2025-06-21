@@ -1,0 +1,22 @@
+:root {
+  font-family: Montserrat, sans-serif;
+}
+
+html {
+  font-size: clamp(14px, 0.875rem + 0.5vw, 18px);
+}
+
+.page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--page-bg-color);
+}
+
+.page__content-container {
+  width: 55rem;
+  display: flex;
+  align-items: center;
+  height: 600px;
+}

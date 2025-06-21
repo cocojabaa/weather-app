@@ -102,7 +102,7 @@ button {
   font: inherit;
 }
 
-html {
+html, main {
   /**
     Пригодится в большинстве ситуаций
     (когда, например, нужно будет "прижать" футер к низу сайта)
@@ -148,18 +148,8 @@ label {
 /**
   Приводим к единому цвету svg-элементы
   (за исключением тех, у которых уже указан
-  атрибут fill со значением 'none' или начинается с 'url')
- */
-/**
-  Приводим к единому цвету svg-элементы
-  (за исключением тех, у которых уже указан
   атрибут stroke со значением 'none')
  */
-:where([stroke]:not([stroke=none],
-[stroke^=url])) {
-  stroke: currentColor;
-}
-
 /**
   Чиним баг задержки смены цвета при взаимодействии с svg-элементами
  */
@@ -188,6 +178,118 @@ svg * {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+:root {
+  font-family: Montserrat, sans-serif;
+}
+
+html {
+  font-size: clamp(14px, 0.875rem + 0.5vw, 18px);
+}
+
+.page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--page-bg-color);
+}
+
+.page__content-container {
+  width: 55rem;
+  display: flex;
+  align-items: center;
+  height: 600px;
+}
+
+:root {
+  --font-color: #FFF;
+  --page-bg-color: #343D4B;
+  --secondary-card-bg-color: #222831;
+  --first-gradient-color: #90D9E0;
+  --second-gradient-color: #5460E6;
+}
+
+.primary-card {
+  height: 100%;
+  width: 48%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 33px;
+  background-image: url("../../assets/images/cloudy.jpg");
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem 0 3rem 2rem;
+  justify-content: space-between;
+}
+.primary-card:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to bottom right, var(--first-gradient-color), var(--second-gradient-color));
+  opacity: 0.7;
+}
+
+.secondary-card {
+  height: 90%;
+  flex: 1;
+  background-color: var(--secondary-card-bg-color);
+  border-top-right-radius: 33px;
+  border-bottom-right-radius: 33px;
+}
+
+.base-info {
+  color: var(--font-color);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.base-info__week-day {
+  font-size: 2.1rem;
+  font-weight: 700;
+}
+.base-info__date {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.base-info__position-container {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.base-info__position-svg {
+  width: 25px;
+  aspect-ratio: 1/1;
+}
+.base-info__position-text {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.weather-info {
+  color: var(--font-color);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.weather-info__weather-svg {
+  height: 60px;
+  width: fit-content;
+}
+.weather-info__temperature {
+  font-size: 2.8rem;
+  font-weight: 700;
+}
+.weather-info__weather-description {
+  margin-top: -10px;
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 
 /*# sourceMappingURL=main.css.map */

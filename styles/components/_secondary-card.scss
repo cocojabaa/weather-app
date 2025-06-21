@@ -1,0 +1,9 @@
+@use "../utils/variables";
+
+.secondary-card {
+  height: 90%;
+  flex: 1;
+  background-color: var(--secondary-card-bg-color);
+  border-top-right-radius: 33px;
+  border-bottom-right-radius: 33px;
+}

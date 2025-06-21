@@ -1,1 +1,10 @@
 @use "./base/custom-normalize";
+@use "./base/base";
+
+@use "./utils/variables";
+@use "./utils/breakpoints";
+
+@use "./components/primary-card";
+@use "./components/secondary-card";
+@use "./components/base-info";
+@use "./components/weather-info";
