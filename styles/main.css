@@ -205,6 +205,7 @@ html {
 :root {
   --font-color: #FFF;
   --page-bg-color: #343D4B;
+  --forecast-card-bg-color: #272E37;
   --secondary-card-bg-color: #222831;
   --first-gradient-color: #90D9E0;
   --second-gradient-color: #5460E6;
@@ -240,6 +241,16 @@ html {
   background-color: var(--secondary-card-bg-color);
   border-top-right-radius: 33px;
   border-bottom-right-radius: 33px;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.secondary-card__forecast-container {
+  display: flex;
+  width: 70%;
+  gap: 0.2rem;
 }
 
 .base-info {
@@ -257,16 +268,16 @@ html {
   font-size: 1.2rem;
   font-weight: 500;
 }
-.base-info__position-container {
+.base-info__location-container {
   display: flex;
   gap: 10px;
   align-items: center;
 }
-.base-info__position-svg {
+.base-info__location-svg {
   width: 25px;
   aspect-ratio: 1/1;
 }
-.base-info__position-text {
+.base-info__location-text {
   font-size: 1.1rem;
   font-weight: 500;
 }
@@ -279,17 +290,94 @@ html {
   gap: 7px;
 }
 .weather-info__weather-svg {
-  height: 60px;
+  height: 50px;
   width: fit-content;
 }
 .weather-info__temperature {
-  font-size: 2.8rem;
+  font-size: 2.6rem;
   font-weight: 700;
 }
 .weather-info__weather-description {
   margin-top: -10px;
   font-size: 1.5rem;
   font-weight: 700;
+}
+
+.detailed-info {
+  color: var(--font-color);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+.detailed-info__row-container {
+  display: flex;
+  justify-content: space-between;
+}
+.detailed-info__text {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+.detailed-info__value {
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+.forecast-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--forecast-card-bg-color);
+  border-radius: 10px;
+  padding-block: 1rem;
+  gap: 5px;
+}
+.forecast-card__svg {
+  width: 50%;
+}
+.forecast-card__week-day {
+  color: var(--font-color);
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+.forecast-card__temperature {
+  color: var(--font-color);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+.forecast-card--current {
+  background-color: #FFF;
+}
+.forecast-card--current .forecast-card__svg path {
+  fill: var(--forecast-card-bg-color);
+}
+.forecast-card--current .forecast-card__week-day {
+  color: var(--forecast-card-bg-color);
+}
+.forecast-card--current .forecast-card__temperature {
+  color: var(--forecast-card-bg-color);
+}
+
+.change-location-button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right bottom, var(--first-gradient-color), var(--second-gradient-color));
+  border-radius: 10px;
+  height: 3rem;
+  border: none;
+  gap: 10px;
+}
+.change-location-button__svg {
+  width: 1.3rem;
+}
+.change-location-button__text {
+  color: var(--font-color);
+  font-size: 1.1rem;
+  font-weight: 500;
 }
 
 /*# sourceMappingURL=main.css.map */

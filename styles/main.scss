@@ -8,3 +8,6 @@
 @use "./components/secondary-card";
 @use "./components/base-info";
 @use "./components/weather-info";
+@use "./components/detailed-info";
+@use "components/forecast-card";
+@use "components/change-location-button";

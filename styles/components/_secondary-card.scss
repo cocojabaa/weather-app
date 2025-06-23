@@ -6,4 +6,15 @@
   background-color: var(--secondary-card-bg-color);
   border-top-right-radius: 33px;
   border-bottom-right-radius: 33px;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  &__forecast-container {
+    display: flex;
+    width: 70%;
+    gap: 0.2rem;
+  }
 }

@@ -1,0 +1,20 @@
+.change-location-button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right bottom, var(--first-gradient-color), var(--second-gradient-color));
+  border-radius: 10px;
+  height: 3rem;
+  border: none;
+  gap: 10px;
+
+  &__svg {
+    width: 1.3rem;
+  }
+  &__text {
+    color: var(--font-color);
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+}

@@ -13,16 +13,16 @@
     font-size: 1.2rem;
     font-weight: 500;
   }
-  &__position-container {
+  &__location-container {
     display: flex;
     gap: 10px;
     align-items: center;
   }
-  &__position-svg {
+  &__location-svg {
     width: 25px;
     aspect-ratio: 1/1;
   }
-  &__position-text {
+  &__location-text {
     font-size: 1.1rem;
     font-weight: 500;
   }
