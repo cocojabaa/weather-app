@@ -3,11 +3,11 @@ export default class WeatherApi {
     this.apiKey = apiKey;
   }
 
-  async fetchWeather() {
+  async fetchWeather(locationName) {
     const url = new URL("https://api.weatherapi.com/v1/forecast.json");
     const params = {
       key: this.apiKey,
-      q: "Rostov-on-don",
+      q: locationName,
       days: 3,
       aqi: "no",
       alerts: "no",

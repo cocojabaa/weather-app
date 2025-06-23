@@ -7,15 +7,18 @@ export default class WeatherDataModel {
     const dateObj = new Date(this.apiResponseObject.forecast.forecastday[0].date)
     return `${dateObj.getDate()} ${this.#getWeekDay(dateObj.getDay())} ${dateObj.getFullYear()}`;
   }
-  get fullWeekDay() {
+  get currentFullWeekDayName() {
     const dateObj = new Date(this.apiResponseObject.forecast.forecastday[0].date)
     return this.#getWeekDay(dateObj.getDay(), true);
   }
-  get locationName() {
+  get currentLocationName() {
     return this.apiResponseObject.location.name;
   }
   get currentTemperature() {
     return `${this.apiResponseObject.current.temp_c} °C`;
+  }
+  get currentWeatherDescription() {
+    return this.#getIconTitleFromWeatherCode(this.apiResponseObject.current.condition.code, true);
   }
   get currentHumidity() {
     return `${this.apiResponseObject.current.humidity} %`;
@@ -71,11 +74,11 @@ export default class WeatherDataModel {
     }
     return ["Вс", "Пн", "Вт", "Ср", "Чт", "Пн", "Сб"][day]
   }
-  #getIconTitleFromWeatherCode(weatherCode) {
-    if (weatherCode === 1000) return "sunny";
-    else if (weatherCode === 1003) return "partly cloudy";
-    else if (weatherCode in [1006, 1009, 1030, 1135, 1147]) return "cloudy";
-    else return "rainy";
+  #getIconTitleFromWeatherCode(weatherCode, onRussian = false) {
+    if (weatherCode === 1000) return onRussian ? "Солнечно" : "sunny";
+    else if (weatherCode === 1003) return onRussian ? "Переменная облачность" : "partly cloudy";
+    else if (weatherCode in [1006, 1009, 1030, 1135, 1147]) return onRussian ? "Облачно" : "cloudy";
+    else return onRussian ? "С осадками" : "rainy";
   }
 
 }
