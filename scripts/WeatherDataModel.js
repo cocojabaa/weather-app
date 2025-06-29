@@ -3,35 +3,29 @@ export default class WeatherDataModel {
     this.apiResponseObject = apiResponseObject;
   }
 
-  get currentFullDate() {
+  getCurrentWeather() {
     const dateObj = new Date(this.apiResponseObject.forecast.forecastday[0].date)
-    return `${dateObj.getDate()} ${this.#getWeekDay(dateObj.getDay())} ${dateObj.getFullYear()}`;
-  }
-  get currentFullWeekDayName() {
-    const dateObj = new Date(this.apiResponseObject.forecast.forecastday[0].date)
-    return this.#getWeekDay(dateObj.getDay(), true);
-  }
-  get currentLocationName() {
-    return this.apiResponseObject.location.name;
-  }
-  get currentTemperature() {
-    return `${this.apiResponseObject.current.temp_c} °C`;
-  }
-  get currentWeatherDescription() {
-    return this.#getIconTitleFromWeatherCode(this.apiResponseObject.current.condition.code, true);
-  }
-  get currentHumidity() {
-    return `${this.apiResponseObject.current.humidity} %`;
-  }
-  get currentWind() {
-    return `${this.apiResponseObject.current.wind_kph} km/h`
-  }
-  get currentPrecipitation() {
-    return `${this.apiResponseObject.current.precip_mm} mm`
-  }
-  get currentIconTitle() {
-    const code = this.apiResponseObject.current.condition.code;
-    return this.#getIconTitleFromWeatherCode(code);
+    const fullDate = `${dateObj.getDate()} ${this.#getWeekDay(dateObj.getDay())} ${dateObj.getFullYear()}`;
+    const fullWeekDayName = this.#getWeekDay(dateObj.getDay(), true);
+    const locationName = this.apiResponseObject.location.name;
+    const temperature = `${this.apiResponseObject.current.temp_c} °C`;
+    const weatherDescription = this.#getIconTitleFromWeatherCode(this.apiResponseObject.current.condition.code, true);
+    const humidity = `${this.apiResponseObject.current.humidity} %`;
+    const wind = `${this.apiResponseObject.current.wind_kph} km/h`;
+    const precipitation = `${this.apiResponseObject.current.precip_mm} mm`;
+    const iconTitle = this.#getIconTitleFromWeatherCode(this.apiResponseObject.current.condition.code);
+
+    return {
+      fullDate: fullDate,
+      fullWeekDayName: fullWeekDayName,
+      locationName: locationName,
+      temperature: temperature,
+      weatherDescription: weatherDescription,
+      humidity: humidity,
+      wind: wind,
+      iconTitle: iconTitle,
+      precipitation: precipitation,
+    }
   }
 
   getForecastArray() {
@@ -75,7 +69,7 @@ export default class WeatherDataModel {
     return ["Вс", "Пн", "Вт", "Ср", "Чт", "Пн", "Сб"][day]
   }
   #getIconTitleFromWeatherCode(weatherCode, onRussian = false) {
-    if (weatherCode === 1000) return onRussian ? "Солнечно" : "sunny";
+    if (weatherCode === 1000) return onRussian ? "Ясно" : "sunny";
     else if (weatherCode === 1003) return onRussian ? "Переменная облачность" : "partly cloudy";
     else if (weatherCode in [1006, 1009, 1030, 1135, 1147]) return onRussian ? "Облачно" : "cloudy";
     else return onRussian ? "С осадками" : "rainy";

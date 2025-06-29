@@ -11,10 +11,21 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  animation: spawn var(--animation-duration) forwards;
 
   &__forecast-container {
     display: flex;
     width: 70%;
     gap: 0.2rem;
+  }
+}
+
+@keyframes spawn {
+  0% {
+    translate: 0 50px;
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

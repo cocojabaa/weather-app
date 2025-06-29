@@ -206,9 +206,12 @@ html {
   --font-color: #FFF;
   --page-bg-color: #343D4B;
   --forecast-card-bg-color: #272E37;
+  --forecast-card-hover-color: #4a5a6e;
   --secondary-card-bg-color: #222831;
   --first-gradient-color: #90D9E0;
   --second-gradient-color: #5460E6;
+  --animation-duration: 1s;
+  --transition-duration: 0.2s;
 }
 
 .primary-card {
@@ -223,6 +226,7 @@ html {
   flex-direction: column;
   padding: 2.5rem 0 3rem 2rem;
   justify-content: space-between;
+  animation: spawn var(--animation-duration) forwards;
 }
 .primary-card:after {
   content: "";
@@ -235,6 +239,15 @@ html {
   opacity: 0.7;
 }
 
+@keyframes spawn {
+  0% {
+    translate: 0 50px;
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .secondary-card {
   height: 90%;
   flex: 1;
@@ -246,6 +259,7 @@ html {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  animation: spawn var(--animation-duration) forwards;
 }
 .secondary-card__forecast-container {
   display: flex;
@@ -253,6 +267,15 @@ html {
   gap: 0.2rem;
 }
 
+@keyframes spawn {
+  0% {
+    translate: 0 50px;
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .base-info {
   color: var(--font-color);
   z-index: 1;
@@ -290,8 +313,7 @@ html {
   gap: 7px;
 }
 .weather-info__weather-svg {
-  height: 50px;
-  width: fit-content;
+  width: 80px;
 }
 .weather-info__temperature {
   font-size: 2.6rem;
@@ -333,6 +355,12 @@ html {
   border-radius: 10px;
   padding-block: 1rem;
   gap: 5px;
+  border: none;
+  transition-duration: var(--transition-duration);
+}
+.forecast-card:not(:first-child):hover {
+  background-color: var(--forecast-card-hover-color);
+  translate: 0 -10px;
 }
 .forecast-card__svg {
   width: 50%;
@@ -347,16 +375,19 @@ html {
   font-size: 1.1rem;
   font-weight: 700;
 }
-.forecast-card--current {
+.forecast-card--selected {
   background-color: #FFF;
 }
-.forecast-card--current .forecast-card__svg path {
-  fill: var(--forecast-card-bg-color);
-}
-.forecast-card--current .forecast-card__week-day {
+.forecast-card--selected .forecast-card__week-day {
   color: var(--forecast-card-bg-color);
 }
-.forecast-card--current .forecast-card__temperature {
+.forecast-card--selected .forecast-card__svg path {
+  fill: var(--forecast-card-bg-color);
+}
+.forecast-card--selected .forecast-card__svg {
+  fill: var(--forecast-card-bg-color);
+}
+.forecast-card--selected .forecast-card__temperature {
   color: var(--forecast-card-bg-color);
 }
 
