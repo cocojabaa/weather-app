@@ -30,10 +30,10 @@ export default class WeatherUI {
     const forecastDays = weatherState.forecastDays;
     const indexOfSelectedDay = weatherState.indexOfSelectedDay;
 
+    this.currentLocation.textContent = weatherState.currentWeather.locationName;
     if (weatherState.indexOfSelectedDay === 0) {
       this.currentFullWeekDayName.textContent = weatherState.currentWeather.fullWeekDayName;
       this.currentFullDate.textContent = weatherState.currentWeather.fullDate;
-      this.currentLocation.textContent = weatherState.currentWeather.locationName;
       this.currentTemperature.textContent = weatherState.currentWeather.temperature;
       this.currentWeatherDescription.textContent = weatherState.currentWeather.weatherDescription;
       this.currentPrecipitation.textContent = weatherState.currentWeather.precipitation;
@@ -52,7 +52,6 @@ export default class WeatherUI {
     else {
       this.currentFullWeekDayName.textContent = forecastDays[indexOfSelectedDay].fullWeekDayName;
       this.currentFullDate.textContent = forecastDays[indexOfSelectedDay].fullDate;
-      this.currentLocation.textContent = forecastDays[indexOfSelectedDay].locationName;
       this.currentTemperature.textContent = forecastDays[indexOfSelectedDay].temperature;
       this.currentWeatherDescription.textContent = forecastDays[indexOfSelectedDay].weatherDescription;
       this.currentPrecipitation.textContent = forecastDays[indexOfSelectedDay].precipitation;

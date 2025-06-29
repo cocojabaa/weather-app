@@ -38,6 +38,7 @@ export default class WeatherDataModel {
       const fullWeekDayName = this.#getWeekDay(dateObj.getDay(), true);
       const fullDate = `${dateObj.getDate()} ${shortWeekDayName} ${dateObj.getFullYear()}`;
       const iconTitle = this.#getIconTitleFromWeatherCode(forecast.day.condition.code);
+      const weatherDescription = this.#getIconTitleFromWeatherCode(forecast.day.condition.code, true)
       const temperature = `${forecast.day.maxtemp_c} °C`;
       const wind = `${forecast.day.maxwind_kph} km/h`;
       const precipitation = `${forecast.day.totalprecip_mm} mm`
@@ -47,6 +48,7 @@ export default class WeatherDataModel {
         fullWeekDayName: fullWeekDayName,
         fullDate: fullDate,
         iconTitle: iconTitle,
+        weatherDescription: weatherDescription,
         temperature: temperature,
         wind: wind,
         precipitation: precipitation,

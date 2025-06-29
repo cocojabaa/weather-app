@@ -1,4 +1,4 @@
-@use "../utils/variables";
+@use "../utils/breakpoints" as *;
 
 .primary-card {
   height: 100%;
@@ -13,6 +13,17 @@
   padding: 2.5rem 0 3rem 2rem;
   justify-content: space-between;
   animation: spawn var(--animation-duration) forwards;
+
+  @include respond-to("lg") {
+    min-width: 80%;
+    padding: 2.5rem 4rem 6rem;
+    height: fit-content;
+    flex-direction: row;
+  }
+  @include respond-to('md') {
+    padding: 2.5rem 2rem 6rem;
+    width: 100%;
+  }
 
   &:after {
     content: "";

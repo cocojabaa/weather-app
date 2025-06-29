@@ -12,6 +12,7 @@
   gap: 5px;
   border: none;
   transition-duration: var(--transition-duration);
+  max-width: 6rem;
 
   &:not(.forecast-card--selected):hover {
     background-color: var(--forecast-card-hover-color);

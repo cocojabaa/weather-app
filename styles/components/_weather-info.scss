@@ -1,12 +1,19 @@
+@use "../utils/breakpoints" as *;
+
 .weather-info {
   color: var(--font-color);
   z-index: 1;
   display: flex;
   flex-direction: column;
-  gap: 7px;
+
+  @include respond-to('lg') {
+    align-items: end;
+  }
 
   &__weather-svg {
-    width: 80px
+    width: 80px;
+    min-height: 80px;
+
   }
   &__temperature {
     font-size: 2.6rem;

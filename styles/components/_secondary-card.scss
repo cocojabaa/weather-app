@@ -1,4 +1,4 @@
-@use "../utils/variables";
+@use "../utils/breakpoints" as *;
 
 .secondary-card {
   height: 90%;
@@ -13,10 +13,21 @@
   align-items: center;
   animation: spawn var(--animation-duration) forwards;
 
+  @include respond-to("lg") {
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 33px;
+    width: 70%;
+  }
+  @include respond-to('md') {
+    width: 90%;
+  }
+
   &__forecast-container {
     display: flex;
-    width: 70%;
+    width: 100%;
     gap: 0.2rem;
+    justify-content: center;
+
   }
 }
 

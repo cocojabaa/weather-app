@@ -1,9 +1,20 @@
+@use "../utils/breakpoints" as *;
+
 :root {
   font-family: Montserrat, sans-serif;
 }
 
 html {
-  font-size: clamp(14px, 0.875rem + 0.5vw, 18px);
+  font-size: 16px;
+  @include respond-to('lg') {
+    font-size: 15px;
+  }
+  @include respond-to('md') {
+    font-size: 14px;
+  }
+  @include respond-to('sm') {
+    font-size: 13px;
+  }
 }
 
 .page {
@@ -11,12 +22,22 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-inline: 2rem;
   background-color: var(--page-bg-color);
 }
 
 .page__content-container {
   width: 55rem;
   display: flex;
+  flex-direction: row;
   align-items: center;
   height: 600px;
+  @include respond-to("lg") {
+    flex-direction: column;
+    height: 75%;
+    width: 100%;
+  }
+  @include respond-to('md') {
+    height: 70%;
+  }
 }

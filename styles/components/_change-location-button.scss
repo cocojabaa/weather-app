@@ -8,6 +8,13 @@
   height: 3rem;
   border: none;
   gap: 10px;
+  overflow: hidden;
+  transition-duration: var(--transition-duration);
+
+  &:hover {
+    filter: hue-rotate(-20deg);
+    translate: 0 -5px;
+  }
 
   &__svg {
     width: 1.3rem;
