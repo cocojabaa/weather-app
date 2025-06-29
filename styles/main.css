@@ -358,7 +358,7 @@ html {
   border: none;
   transition-duration: var(--transition-duration);
 }
-.forecast-card:not(:first-child):hover {
+.forecast-card:not(.forecast-card--selected):hover {
   background-color: var(--forecast-card-hover-color);
   translate: 0 -10px;
 }

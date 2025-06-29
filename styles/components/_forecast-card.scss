@@ -13,7 +13,7 @@
   border: none;
   transition-duration: var(--transition-duration);
 
-  &:not(:first-child):hover {
+  &:not(.forecast-card--selected):hover {
     background-color: var(--forecast-card-hover-color);
     translate: 0 -10px;
   }

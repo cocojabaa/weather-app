@@ -26,71 +26,71 @@ export default class WeatherUI {
     }
   }
 
-  // render(weatherModel) {
-  //   this.currentFullWeekDayName.textContent = weatherModel.currentFullWeekDayName;
-  //   this.currentFullDate.textContent = weatherModel.currentFullDate;
-  //   this.currentLocation.textContent = weatherModel.currentLocationName;
-  //   this.currentTemperature.textContent = weatherModel.currentTemperature;
-  //   this.currentWeatherDescription.textContent = weatherModel.currentWeatherDescription;
-  //   this.currentPrecipitation.textContent = weatherModel.currentPrecipitation;
-  //   this.currentHumidity.textContent = weatherModel.currentHumidity;
-  //   this.currentWind.textContent = weatherModel.currentWind;
-  //
-  //   this.primaryCard.style.backgroundImage = `url("../../assets/images/${weatherModel.currentIconTitle}.jpg")`
-  //
-  //   const currentWeatherIcon = document.createElement("img");
-  //   currentWeatherIcon.src = `./assets/icons/${weatherModel.currentIconTitle}.svg`;
-  //   currentWeatherIcon.classList.add('weather-info__weather-svg');
-  //   currentWeatherIcon.classList.add('svg-inject');
-  //   this.currentWeatherInfoContainer.firstElementChild.remove();
-  //   this.currentWeatherInfoContainer.prepend(currentWeatherIcon);
-  //
-  //   const forecastDays = weatherModel.getForecastArray();
-  //   const forecastContainerChildren = this.forecastContainer.children;
-  //   for (let i = 0; i < forecastContainerChildren.length; i++) {
-  //     forecastContainerChildren[i].querySelector('.forecast-card__week-day').textContent = forecastDays[i].shortWeekDayName;
-  //     forecastContainerChildren[i].querySelector('.forecast-card__temperature').textContent = forecastDays[i].temperature;
-  //
-  //     const iconObject = document.createElement("img");
-  //     iconObject.classList.add('forecast-card__svg');
-  //     iconObject.classList.add('svg-inject');
-  //     iconObject.src = `./assets/icons/${forecastDays[i].iconTitle}.svg`;
-  //     forecastContainerChildren[i].children[0].remove();
-  //     forecastContainerChildren[i].prepend(iconObject);
-  //   }
-  //
-  //   SVGInjector(document.querySelectorAll('.svg-inject'));
-  // }
-
   render(weatherState) {
-    this.currentFullWeekDayName.textContent = weatherState.currentWeather.fullWeekDayName;
-    this.currentFullDate.textContent = weatherState.currentWeather.fullDate;
-    this.currentLocation.textContent = weatherState.currentWeather.locationName;
-    this.currentTemperature.textContent = weatherState.currentWeather.temperature;
-    this.currentWeatherDescription.textContent = weatherState.currentWeather.weatherDescription;
-    this.currentPrecipitation.textContent = weatherState.currentWeather.precipitation;
-    this.currentHumidity.textContent = weatherState.currentWeather.humidity;
-    this.currentWind.textContent = weatherState.currentWeather.wind;
-
-    this.primaryCard.style.backgroundImage = `url("../../assets/images/${weatherState.currentWeather.iconTitle}.jpg")`;
-
-    const currentWeatherIcon = document.createElement("img");
-    currentWeatherIcon.src = `./assets/icons/${weatherState.currentWeather.iconTitle}.svg`;
-    currentWeatherIcon.classList.add('weather-info__weather-svg');
-    currentWeatherIcon.classList.add('svg-inject');
-    this.currentWeatherInfoContainer.firstElementChild.remove();
-    this.currentWeatherInfoContainer.prepend(currentWeatherIcon);
-
     const forecastDays = weatherState.forecastDays;
+    const indexOfSelectedDay = weatherState.indexOfSelectedDay;
+
+    if (weatherState.indexOfSelectedDay === 0) {
+      this.currentFullWeekDayName.textContent = weatherState.currentWeather.fullWeekDayName;
+      this.currentFullDate.textContent = weatherState.currentWeather.fullDate;
+      this.currentLocation.textContent = weatherState.currentWeather.locationName;
+      this.currentTemperature.textContent = weatherState.currentWeather.temperature;
+      this.currentWeatherDescription.textContent = weatherState.currentWeather.weatherDescription;
+      this.currentPrecipitation.textContent = weatherState.currentWeather.precipitation;
+      this.currentHumidity.textContent = weatherState.currentWeather.humidity;
+      this.currentWind.textContent = weatherState.currentWeather.wind;
+
+      this.primaryCard.style.backgroundImage = `url("../../assets/images/${weatherState.currentWeather.iconTitle}.jpg")`;
+
+      const currentWeatherIcon = document.createElement("img");
+      currentWeatherIcon.src = `./assets/icons/${weatherState.currentWeather.iconTitle}.svg`;
+      currentWeatherIcon.classList.add('weather-info__weather-svg');
+      currentWeatherIcon.classList.add('svg-inject');
+      this.currentWeatherInfoContainer.firstElementChild.remove();
+      this.currentWeatherInfoContainer.prepend(currentWeatherIcon);
+    }
+    else {
+      this.currentFullWeekDayName.textContent = forecastDays[indexOfSelectedDay].fullWeekDayName;
+      this.currentFullDate.textContent = forecastDays[indexOfSelectedDay].fullDate;
+      this.currentLocation.textContent = forecastDays[indexOfSelectedDay].locationName;
+      this.currentTemperature.textContent = forecastDays[indexOfSelectedDay].temperature;
+      this.currentWeatherDescription.textContent = forecastDays[indexOfSelectedDay].weatherDescription;
+      this.currentPrecipitation.textContent = forecastDays[indexOfSelectedDay].precipitation;
+      this.currentHumidity.textContent = forecastDays[indexOfSelectedDay].humidity;
+      this.currentWind.textContent = forecastDays[indexOfSelectedDay].wind;
+
+      this.primaryCard.style.backgroundImage = `url("../../assets/images/${forecastDays[indexOfSelectedDay].iconTitle}.jpg")`;
+
+      const currentWeatherIcon = document.createElement("img");
+      currentWeatherIcon.src = `./assets/icons/${forecastDays[indexOfSelectedDay].iconTitle}.svg`;
+      currentWeatherIcon.classList.add('weather-info__weather-svg');
+      currentWeatherIcon.classList.add('svg-inject');
+      this.currentWeatherInfoContainer.firstElementChild.remove();
+      this.currentWeatherInfoContainer.prepend(currentWeatherIcon);
+    }
+
     const forecastContainerChildren = this.forecastContainer.children;
     for (let i = 0; i < forecastContainerChildren.length; i++) {
-      forecastContainerChildren[i].querySelector('.forecast-card__week-day').textContent = forecastDays[i].shortWeekDayName;
-      forecastContainerChildren[i].querySelector('.forecast-card__temperature').textContent = forecastDays[i].temperature;
+      const weekDayNameElement = forecastContainerChildren[i].querySelector('.forecast-card__week-day');
+      const temperatureElement = forecastContainerChildren[i].querySelector('.forecast-card__temperature');
+      forecastContainerChildren[i].classList.toggle('forecast-card--selected', false);
+      if (i === indexOfSelectedDay) {
+        forecastContainerChildren[i].classList.toggle('forecast-card--selected', true);
+      }
 
       const iconObject = document.createElement("img");
       iconObject.classList.add('forecast-card__svg');
       iconObject.classList.add('svg-inject');
-      iconObject.src = `./assets/icons/${forecastDays[i].iconTitle}.svg`;
+      if (i === 0) {
+        weekDayNameElement.textContent = weatherState.currentWeather.shortWeekDayName;
+        temperatureElement.textContent = weatherState.currentWeather.temperature;
+        iconObject.src = `./assets/icons/${weatherState.currentWeather.iconTitle}.svg`;
+      }
+      else {
+        weekDayNameElement.textContent = forecastDays[i].shortWeekDayName;
+        temperatureElement.textContent = forecastDays[i].temperature;
+        iconObject.src = `./assets/icons/${forecastDays[i].iconTitle}.svg`;
+      }
       forecastContainerChildren[i].children[0].remove();
       forecastContainerChildren[i].prepend(iconObject);
     }

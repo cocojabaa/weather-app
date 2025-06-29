@@ -6,6 +6,7 @@ export default class WeatherDataModel {
   getCurrentWeather() {
     const dateObj = new Date(this.apiResponseObject.forecast.forecastday[0].date)
     const fullDate = `${dateObj.getDate()} ${this.#getWeekDay(dateObj.getDay())} ${dateObj.getFullYear()}`;
+    const shortWeekDayName = this.#getWeekDay(dateObj.getDay());
     const fullWeekDayName = this.#getWeekDay(dateObj.getDay(), true);
     const locationName = this.apiResponseObject.location.name;
     const temperature = `${this.apiResponseObject.current.temp_c} °C`;
@@ -18,6 +19,7 @@ export default class WeatherDataModel {
     return {
       fullDate: fullDate,
       fullWeekDayName: fullWeekDayName,
+      shortWeekDayName: shortWeekDayName,
       locationName: locationName,
       temperature: temperature,
       weatherDescription: weatherDescription,

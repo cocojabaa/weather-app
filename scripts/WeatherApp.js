@@ -9,13 +9,14 @@ export default class WeatherApp {
     this.weatherState = {
       currentWeather: {}, // определяется в init
       forecastDays: [], // определяется в init
-      selectDayIndex: 0,
+      indexOfSelectedDay: 0,
     }; // TODO
   }
 
   forecastSelectHandler(index) {
-    this.weatherState.selectDayIndex = index;
-
+    if (this.weatherState.indexOfSelectedDay === index) return;
+    this.weatherState.indexOfSelectedDay = index;
+    this.ui.render(this.weatherState);
   }
 
   async init(locationName) {
