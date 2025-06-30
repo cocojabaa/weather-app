@@ -381,11 +381,6 @@ html {
   display: flex;
   flex-direction: column;
 }
-@media (max-width: 992px) {
-  .weather-info {
-    align-items: end;
-  }
-}
 .weather-info__weather-svg {
   width: 80px;
   min-height: 80px;
@@ -398,13 +393,24 @@ html {
 .weather-info__temperature {
   font-size: 2.6rem;
   font-weight: 700;
-  text-align: end;
+  text-align: start;
 }
 .weather-info__weather-description {
   margin-top: -10px;
   font-size: 1.5rem;
   font-weight: 700;
-  text-align: end;
+  text-align: start;
+}
+@media (max-width: 992px) {
+  .weather-info {
+    align-items: end;
+  }
+  .weather-info__temperature {
+    text-align: end;
+  }
+  .weather-info__weather-description {
+    text-align: end;
+  }
 }
 
 .detailed-info {

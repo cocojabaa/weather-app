@@ -6,9 +6,6 @@
   display: flex;
   flex-direction: column;
 
-  @include respond-to('lg') {
-    align-items: end;
-  }
 
   &__weather-svg {
     width: 80px;
@@ -21,12 +18,21 @@
   &__temperature {
     font-size: 2.6rem;
     font-weight: 700;
-    text-align: end;
+    text-align: start;
   }
   &__weather-description {
     margin-top: -10px;
     font-size: 1.5rem;
     font-weight: 700;
-    text-align: end;
+    text-align: start;
+  }
+  @include respond-to('lg') {
+    align-items: end;
+    &__temperature {
+      text-align: end;
+    }
+    &__weather-description {
+      text-align: end;
+    }
   }
 }
