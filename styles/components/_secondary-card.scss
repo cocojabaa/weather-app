@@ -1,7 +1,7 @@
 @use "../utils/breakpoints" as *;
 
 .secondary-card {
-  height: 90%;
+  gap: 5rem;
   width: 400px;
   background-color: var(--secondary-card-bg-color);
   border-top-right-radius: 33px;
@@ -18,12 +18,13 @@
     border-bottom-left-radius: 33px;
     max-width: 500px;
     width: 90%;
+    gap: 2rem;
   }
   @include respond-to('md') {
-    height: 80%;
+    //height: 80%;
   }
   @include respond-to('sm') {
-    height: 60%;
+    //height: 60%;
   }
 
   &__forecast-container {

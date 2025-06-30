@@ -32,7 +32,6 @@ html {
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: 600px;
   @include respond-to("lg") {
     flex-direction: column;
     height: 75%;

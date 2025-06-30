@@ -1,15 +1,14 @@
 @use "../utils/breakpoints" as *;
 
 .primary-card {
-  height: 100%;
   width: 400px;
   position: relative;
   overflow: hidden;
   border-radius: 33px;
-  background-image: url("../../assets/images/cloudy.jpg");
   background-size: cover;
   display: flex;
   flex-direction: column;
+  gap: 14rem;
   padding: 2.5rem 0 3rem 2rem;
   justify-content: space-between;
   animation: spawn var(--animation-duration) forwards;
@@ -17,9 +16,10 @@
   @include respond-to("lg") {
     max-width: 600px;
     width: 100%;
-    padding: 2.5rem 4rem 8rem;
-    height: fit-content;
+    padding: 2.5rem 4rem 5rem;
     flex-direction: row;
+    gap: 0;
+    min-height: fit-content;
   }
   @include respond-to('md') {
     padding: 2.5rem 2rem 6rem;
