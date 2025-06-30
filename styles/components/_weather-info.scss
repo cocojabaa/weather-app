@@ -21,10 +21,12 @@
   &__temperature {
     font-size: 2.6rem;
     font-weight: 700;
+    text-align: end;
   }
   &__weather-description {
     margin-top: -10px;
     font-size: 1.5rem;
     font-weight: 700;
+    text-align: end;
   }
 }
