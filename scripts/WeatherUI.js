@@ -20,7 +20,7 @@ export default class WeatherUI {
   bindForecasts(handler) {
     const forecastContainerChildren = this.forecastContainer.children;
     for (let i = 0; i < forecastContainerChildren.length; i++) {
-      forecastContainerChildren[i].addEventListener('click', (e) => {
+      forecastContainerChildren[i].addEventListener('click', () => {
         handler(i);
       })
     }
@@ -40,7 +40,7 @@ export default class WeatherUI {
       this.currentHumidity.textContent = weatherState.currentWeather.humidity;
       this.currentWind.textContent = weatherState.currentWeather.wind;
 
-      this.primaryCard.style.backgroundImage = `url("../../assets/images/${weatherState.currentWeather.iconTitle}.jpg")`;
+      this.primaryCard.style.backgroundImage = `url("../assets/images/${weatherState.currentWeather.iconTitle}.jpg")`;
 
       const currentWeatherIcon = document.createElement("img");
       currentWeatherIcon.src = `./assets/icons/${weatherState.currentWeather.iconTitle}.svg`;
