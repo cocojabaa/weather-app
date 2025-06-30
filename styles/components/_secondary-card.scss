@@ -2,7 +2,7 @@
 
 .secondary-card {
   height: 90%;
-  flex: 1;
+  width: 400px;
   background-color: var(--secondary-card-bg-color);
   border-top-right-radius: 33px;
   border-bottom-right-radius: 33px;
@@ -16,10 +16,14 @@
   @include respond-to("lg") {
     border-top-right-radius: 0;
     border-bottom-left-radius: 33px;
-    width: 70%;
+    max-width: 500px;
+    width: 90%;
   }
   @include respond-to('md') {
-    width: 90%;
+    height: 80%;
+  }
+  @include respond-to('sm') {
+    height: 60%;
   }
 
   &__forecast-container {

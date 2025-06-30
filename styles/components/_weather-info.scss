@@ -13,6 +13,9 @@
   &__weather-svg {
     width: 80px;
     min-height: 80px;
+    @include respond-to('xs') {
+      width: 60px;
+    }
 
   }
   &__temperature {

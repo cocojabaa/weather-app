@@ -58,7 +58,7 @@ export default class WeatherUI {
       this.currentHumidity.textContent = forecastDays[indexOfSelectedDay].humidity;
       this.currentWind.textContent = forecastDays[indexOfSelectedDay].wind;
 
-      this.primaryCard.style.backgroundImage = `url("../../assets/images/${forecastDays[indexOfSelectedDay].iconTitle}.jpg")`;
+      this.primaryCard.style.backgroundImage = `url("../assets/images/${forecastDays[indexOfSelectedDay].iconTitle}.jpg")`;
 
       const currentWeatherIcon = document.createElement("img");
       currentWeatherIcon.src = `./assets/icons/${forecastDays[indexOfSelectedDay].iconTitle}.svg`;

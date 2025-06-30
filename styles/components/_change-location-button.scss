@@ -1,3 +1,5 @@
+@use "../utils/breakpoints" as *;
+
 .change-location-button {
   width: 100%;
   display: flex;
@@ -10,6 +12,13 @@
   gap: 10px;
   overflow: hidden;
   transition-duration: var(--transition-duration);
+
+  @include respond-to("lg") {
+    height: 3.5rem;
+  }
+  @include respond-to("sm") {
+    height: 4rem;
+  }
 
   &:hover {
     filter: hue-rotate(-20deg);

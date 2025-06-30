@@ -15,19 +15,20 @@ html {
   @include respond-to('sm') {
     font-size: 13px;
   }
+  @include respond-to('xs') {
+    font-size: 12px;
+  }
 }
 
 .page {
-  height: 100vh;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-inline: 2rem;
   background-color: var(--page-bg-color);
 }
 
 .page__content-container {
-  width: 55rem;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -35,9 +36,12 @@ html {
   @include respond-to("lg") {
     flex-direction: column;
     height: 75%;
-    width: 100%;
+    width: 90%;
   }
   @include respond-to('md') {
     height: 70%;
+  }
+  @include respond-to('sm') {
+    width: 95%;
   }
 }

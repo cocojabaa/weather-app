@@ -2,7 +2,7 @@
 
 .primary-card {
   height: 100%;
-  width: 48%;
+  width: 400px;
   position: relative;
   overflow: hidden;
   border-radius: 33px;
@@ -15,14 +15,15 @@
   animation: spawn var(--animation-duration) forwards;
 
   @include respond-to("lg") {
-    min-width: 80%;
-    padding: 2.5rem 4rem 6rem;
+    max-width: 600px;
+    width: 100%;
+    padding: 2.5rem 4rem 8rem;
     height: fit-content;
     flex-direction: row;
   }
   @include respond-to('md') {
     padding: 2.5rem 2rem 6rem;
-    width: 100%;
+
   }
 
   &:after {

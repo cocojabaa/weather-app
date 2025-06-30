@@ -102,7 +102,7 @@ button {
   font: inherit;
 }
 
-html, main {
+html, main, body {
   /**
     Пригодится в большинстве ситуаций
     (когда, например, нужно будет "прижать" футер к низу сайта)
@@ -201,18 +201,21 @@ html {
     font-size: 13px;
   }
 }
+@media (max-width: 430px) {
+  html {
+    font-size: 12px;
+  }
+}
 
 .page {
-  height: 100vh;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-inline: 2rem;
   background-color: var(--page-bg-color);
 }
 
 .page__content-container {
-  width: 55rem;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -222,12 +225,17 @@ html {
   .page__content-container {
     flex-direction: column;
     height: 75%;
-    width: 100%;
+    width: 90%;
   }
 }
 @media (max-width: 768px) {
   .page__content-container {
     height: 70%;
+  }
+}
+@media (max-width: 576px) {
+  .page__content-container {
+    width: 95%;
   }
 }
 
@@ -245,7 +253,7 @@ html {
 
 .primary-card {
   height: 100%;
-  width: 48%;
+  width: 400px;
   position: relative;
   overflow: hidden;
   border-radius: 33px;
@@ -259,8 +267,9 @@ html {
 }
 @media (max-width: 992px) {
   .primary-card {
-    min-width: 80%;
-    padding: 2.5rem 4rem 6rem;
+    max-width: 600px;
+    width: 100%;
+    padding: 2.5rem 4rem 8rem;
     height: fit-content;
     flex-direction: row;
   }
@@ -268,7 +277,6 @@ html {
 @media (max-width: 768px) {
   .primary-card {
     padding: 2.5rem 2rem 6rem;
-    width: 100%;
   }
 }
 .primary-card:after {
@@ -293,7 +301,7 @@ html {
 }
 .secondary-card {
   height: 90%;
-  flex: 1;
+  width: 400px;
   background-color: var(--secondary-card-bg-color);
   border-top-right-radius: 33px;
   border-bottom-right-radius: 33px;
@@ -308,12 +316,18 @@ html {
   .secondary-card {
     border-top-right-radius: 0;
     border-bottom-left-radius: 33px;
-    width: 70%;
+    max-width: 500px;
+    width: 90%;
   }
 }
 @media (max-width: 768px) {
   .secondary-card {
-    width: 90%;
+    height: 80%;
+  }
+}
+@media (max-width: 576px) {
+  .secondary-card {
+    height: 60%;
   }
 }
 .secondary-card__forecast-container {
@@ -375,6 +389,11 @@ html {
 .weather-info__weather-svg {
   width: 80px;
   min-height: 80px;
+}
+@media (max-width: 430px) {
+  .weather-info__weather-svg {
+    width: 60px;
+  }
 }
 .weather-info__temperature {
   font-size: 2.6rem;
@@ -465,6 +484,16 @@ html {
   gap: 10px;
   overflow: hidden;
   transition-duration: var(--transition-duration);
+}
+@media (max-width: 992px) {
+  .change-location-button {
+    height: 3.5rem;
+  }
+}
+@media (max-width: 576px) {
+  .change-location-button {
+    height: 4rem;
+  }
 }
 .change-location-button:hover {
   filter: hue-rotate(-20deg);
