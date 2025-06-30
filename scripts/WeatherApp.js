@@ -10,7 +10,7 @@ export default class WeatherApp {
       currentWeather: {}, // определяется в init
       forecastDays: [], // определяется в init
       indexOfSelectedDay: 0,
-    }; // TODO
+    };
   }
 
   forecastSelectHandler(index) {
