@@ -20,7 +20,7 @@ export default class WeatherUI {
   bindForecasts(handler) {
     const forecastContainerChildren = this.forecastContainer.children;
     for (let i = 0; i < forecastContainerChildren.length; i++) {
-      forecastContainerChildren[i].addEventListener('click', () => {
+      forecastContainerChildren[i].addEventListener('click', (e) => {
         handler(i);
       })
     }
@@ -58,7 +58,7 @@ export default class WeatherUI {
       this.currentHumidity.textContent = forecastDays[indexOfSelectedDay].humidity;
       this.currentWind.textContent = forecastDays[indexOfSelectedDay].wind;
 
-      this.primaryCard.style.backgroundImage = `url("../assets/images/${forecastDays[indexOfSelectedDay].iconTitle}.jpg")`;
+      this.primaryCard.style.backgroundImage = `url("../../assets/images/${forecastDays[indexOfSelectedDay].iconTitle}.jpg")`;
 
       const currentWeatherIcon = document.createElement("img");
       currentWeatherIcon.src = `./assets/icons/${forecastDays[indexOfSelectedDay].iconTitle}.svg`;
